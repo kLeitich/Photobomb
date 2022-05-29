@@ -5,14 +5,13 @@ from django.http import HttpResponse
 def welcome(request):
     return render(request, 'index.html')
 
-def pic_food(request):
+def food(request):
     return render(request, 'food.html')
 
-def pic_food(request):
+def travel(request):
     return render(request, 'travel.html')
 
-def pic_food(request):
-    return render(request, 'food.html')
+def cars(request):
+    return render(request, 'cars.html')
 
-def pic_food(request):
-    return render(request, 'food.html')
+
