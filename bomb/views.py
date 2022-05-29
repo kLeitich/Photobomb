@@ -5,5 +5,14 @@ from django.http import HttpResponse
 def welcome(request):
     return render(request, 'index.html')
 
-def pic_of_today(request):
-    pass
+def pic_food(request):
+    return render(request, 'food.html')
+
+def pic_food(request):
+    return render(request, 'travel.html')
+
+def pic_food(request):
+    return render(request, 'food.html')
+
+def pic_food(request):
+    return render(request, 'food.html')
