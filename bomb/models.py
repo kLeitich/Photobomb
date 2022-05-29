@@ -3,12 +3,12 @@ from unicodedata import category
 from django.db import models
 
 # Create your models here.
-class Image(models.model):
+class Image(models.Model):
     image=models.ImageField(upload_to = 'index/')
     name= models.CharField(max_length =30)
     description= models.CharField(max_length =300)
-    location=models.ForeignKey('Location')
-    category=models.ForeignKey('Catergory')
+    # location=models.ForeignKey('Location',on_delete=models.DO_NOTHING)
+    # category=models.ForeignKey('Catergory',on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.name
