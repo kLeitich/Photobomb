@@ -15,7 +15,7 @@ https://github.com/kLeitich/Photobomb.git
 ```
 #### Navigate into the folder and install requirements  
  ```bash 
-cd Photobomb pip install -r requirements.txt 
+cd Photobomb && pip install -r requirements.txt 
 ```
 ##### Install and activate Virtual  
  ```bash 
