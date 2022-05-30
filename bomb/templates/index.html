@@ -7,7 +7,7 @@
         <p class="lead text-muted">where you can View different photos that interest you,Click on a single photo to expand it and also view the details of the photo,Search for different categories of photos. (ie. Travel, Food),Copy a link to the photo to share with my friends and View photos based on the location they were taken.</p>
         <p>
           <a href="#" class="btn btn-primary my-2">view by location</a>
-          <a href="#" class="btn btn-secondary my-2">view by category</a>
+          <a href="#nav" class="btn btn-secondary my-2">view by category</a>
         </p>
       </div>
     </div>
@@ -18,12 +18,38 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {%for item in images %}
             <div class="col">
+                <div class="card-body">
+                    <h2 class="card-text">{{item.category}}</h2>
+                    
+                </div>
                 <div class="card shadow-sm">
                     <img src="{{item.image.url}}" alt="pic" class="bd-placeholder-img card-img-top" width="100%" height="225" >
                     <div class="card-body">
                         <p class="card-text">{{item.name}}</p>
-                        
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                        details
+                        </button>
                     </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                ...
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    
                 </div>
             </div>{% endfor %}
         </div>
@@ -31,6 +57,18 @@
 </div>
 
 {%endblock%}
-
-
-
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>This is a vertically centered modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
