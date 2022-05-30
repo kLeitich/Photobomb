@@ -40,10 +40,7 @@ class Category(models.Model):
     def update_category(cls,category_name):
         cls.objects.filter(category_name=category_name).update(category_name=category_name)
 
-    @classmethod
-    def filter_by_category(cls,category):
-        images = cls.objects.filter(category__category_name__icontains=category)
-        return images
+    
 
 class Image(models.Model):
     image=models.ImageField(upload_to = 'category/')
@@ -63,10 +60,7 @@ class Image(models.Model):
     def update_image(self,cls,id,image):
         images=cls.objects.filter(id=id).update(image=image)
         return images
-    @classmethod
-    def filter_category(cls,category):
-        images=cls.objects.filter(category=category)
-        return images
+    
 
     @classmethod
     def get_all_images(cls):
@@ -79,7 +73,11 @@ class Image(models.Model):
     @classmethod
     def update_image(cls,id,image):
         cls.objects.filter(id=id).update(image=image)
+    # @classmethod
+    # def search_by_category(cls,search_term):
+    #     images=cls.objects.filter(category_icontains=search_term)
+    #     return images
     @classmethod
-    def search_by_category(cls,search_term):
-        images=cls.objects.filter(category_name_icontains=search_term)
+    def filter_by_category(cls,category_id):
+        images = cls.objects.filter(category_id=category_id)
         return images
