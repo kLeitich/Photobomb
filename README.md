@@ -50,7 +50,7 @@ If you want to use new server run e.g 9000
 ## Running the tests
 
 ```bash 
- python manage.py test art
+ python manage.py test bomb
 ```
 
 

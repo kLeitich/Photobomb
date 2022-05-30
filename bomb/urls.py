@@ -8,6 +8,7 @@ urlpatterns=[
     path('food',views.food,name = 'food'),
     path('travel',views.travel,name = 'travel'),
     path('cars',views.cars,name = 'cars'),
+    path('search',views.search_by_category,name='search_results')
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -1,0 +1,59 @@
+{%extends 'base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if category%}
+      <h2>Found {{ category|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Found 0 category for the search term {{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+  {% if category %}
+    {%for item in images %}
+    <div class="col">
+        <div class="card-body">
+            <h2 class="card-text">{{item.category}}</h2>
+            
+        </div>
+        <div class="card shadow-sm">
+            <img src="{{item.image.url}}" alt="pic" class="bd-placeholder-img card-img-top" width="100%" height="225" >
+            <div class="card-body">
+                <p class="card-text">{{item.name}}</p>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my{{item.id}}">
+                    details
+                  </button>
+            </div>
+                <!-- Modal -->
+                <div class="modal fade" id="my{{item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{item.name}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{item.image.url}}" alt="pic" class="bd-placeholder-img" width="100%" height="100%" >
+                            <h4>{{item.name}}</h4>
+                        {{item.description}}
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">copy link</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>{% endfor %}
+</div>
+  {% endif %}
+  </div>
+</div>
+{% endblock %}

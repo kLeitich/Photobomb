@@ -41,8 +41,8 @@ class Category(models.Model):
         cls.objects.filter(category_name=category_name).update(category_name=category_name)
 
     @classmethod
-    def filter_by_location(cls,cat):
-        images = cls.objects.filter(cat__category_name__icontains=cat)
+    def filter_by_category(cls,category):
+        images = cls.objects.filter(category__category_name__icontains=category)
         return images
 
 class Image(models.Model):
@@ -80,5 +80,6 @@ class Image(models.Model):
     def update_image(cls,id,image):
         cls.objects.filter(id=id).update(image=image)
     @classmethod
-    def search_by_cat(cls,search_term):
-        images=cls.objects.filter(category_name=search_term)
+    def search_by_category(cls,search_term):
+        images=cls.objects.filter(category_name_icontains=search_term)
+        return images
