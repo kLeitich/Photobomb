@@ -1,4 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class="text-center">Welcome home</h1>
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Welcome to PhotoBomb</h1>
+        <p class="lead text-muted">where you can View different photos that interest you,Click on a single photo to expand it and also view the details of the photo,Search for different categories of photos. (ie. Travel, Food),Copy a link to the photo to share with my friends and View photos based on the location they were taken.</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">view by location</a>
+          <a href="#" class="btn btn-secondary my-2">view by category</a>
+        </p>
+      </div>
+    </div>
+</section>
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {%for item in images %}
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="{{item.image.url}}" alt="pic" class="bd-placeholder-img card-img-top" width="100%" height="225" >
+                    <div class="card-body">
+                        <p class="card-text">{{item.name}}</p>
+                        
+                    </div>
+                </div>
+            </div>{% endfor %}
+        </div>
+    </div>
+</div>
+
 {%endblock%}
+
+
+
