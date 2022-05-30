@@ -1,5 +1,3 @@
-from email.mime import image
-from unicodedata import category
 from django.db import models
 
 # Create your models here.
@@ -20,8 +18,8 @@ class Image(models.Model):
     image=models.ImageField(upload_to = 'index/')
     name= models.CharField(max_length =30)
     description= models.CharField(max_length =300)
-    location=models.ForeignKey('Location',on_delete=models.DO_NOTHING)
-    category=models.ForeignKey('Catergory',on_delete=models.DO_NOTHING)
+    location=models.ForeignKey('Location',on_delete=models.DO_NOTHING,null=True)
+    category=models.ForeignKey('Category',on_delete=models.DO_NOTHING,null=True)
 
     def __str__(self):
         return self.image
