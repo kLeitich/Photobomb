@@ -19,13 +19,13 @@
             {%for item in images %}
             <div class="col">
                 <div class="card-body">
-                    <h2 class="card-text">{{item.category}}</h2>
+                    <h2 class="card-text">Category: {{item.category}}</h2>
                     
                 </div>
                 <div class="card shadow-sm">
                     <img src="{{item.image.url}}" alt="pic" class="bd-placeholder-img card-img-top" width="100%" height="225" >
                     <div class="card-body">
-                        <p class="card-text">{{item.name}}</p>
+                        <p class="card-text">Name: {{item.name}}</p>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#my{{item.id}}">
                             details
@@ -41,8 +41,10 @@
                                 </div>
                                 <div class="modal-body">
                                     <img src="{{item.image.url}}" alt="pic" class="bd-placeholder-img" width="100%" height="100%" >
-                                    <h4>{{item.name}}</h4>
-                                {{item.description}}
+                                    <h4>Name: {{item.name}}</h4>
+                                    <p>Description: {{item.description}}</p>
+                                    <p>Location:{{item.location}}</p>
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
