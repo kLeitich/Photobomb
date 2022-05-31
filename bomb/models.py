@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Location(models.Model):
-    Location_name=models.CharField(max_length =30)
+    location_name=models.CharField(max_length =30)
 
     def __str__(self):
         return self.Location_name
@@ -75,7 +75,7 @@ class Image(models.Model):
         cls.objects.filter(id=id).update(image=image)
     @classmethod
     def search_by_category(cls,search_term):
-        images=cls.objects.filter(category_name__icontains=search_term)
+        images=cls.objects.filter(category__icontains=search_term)
         return images
     @classmethod
     def filter_by_category(cls,category_id):

@@ -20,11 +20,11 @@ def cars(request):
     return render(request, 'cars.html')
 
 def search_by_category(request):
-    if 'category_name' in request.GET and request.GET["category_name"]:
-        search_term = request.GET.get("category_name")
+    if 'category' in request.GET and request.GET["category"]:
+        search_term = request.GET.get("category")
         searched_cat = Image.search_by_category(search_term)
         message = f"{search_term}"
-        return render(request, 'search.html',{"message":message,"category_name": searched_cat})
+        return render(request, 'search.html',{"message":message,"category": searched_cat})
     else:
         message = "You haven't searched for any category"
         return render(request,'search.html')

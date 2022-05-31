@@ -76,7 +76,7 @@ class ImageTestClass(TestCase):
 # search by category
     def test_search_by_category(self):
         self.image.save_image()
-        images = Image.search_by_category('Nature')
+        images = Image.search_by_category('food')
         self.assertTrue(len(images)>0)
 
     def tearDown(self):
